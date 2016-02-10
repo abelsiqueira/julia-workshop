@@ -1,0 +1,93 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\newif\ifpt
+\usepackage{user}
+\ifpt
+\usepackage[portuguese]{babel}
+\else
+\usepackage[english]{babel}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+
+\colorlet{mybasecolor}[rgb]{gray!70!blue}
+
+\usepackage{slidesdef}
+
+\author{\autor}
+\title{\titulo}
+\date{\data}
+
+\begin{document}
+
+\myframe{
+  \begin{beamercolorbox}[center, rounded=true, shadow=true]{mainbox}
+    \bf \LARGE \titulo
+  \end{beamercolorbox}
+  \hfill
+  \begin{beamercolorbox}[center, wd=0.8\textwidth, rounded=true,
+      shadow=true]{secbox}
+    \bf \large \evento
+  \end{beamercolorbox}
+  \hfill{}
+
+  \linespread{1.0}
+  \begin{center}
+    \textbf{\autor}
+    \vspace{-4pt}
+    {\scriptsize \\ \instautor}
+    \ifdefined\colabum
+      \vspace{10pt}
+      \textbf{\\ \colabum}
+      \vspace{-4pt}
+      {\scriptsize \\ \instcolabum}
+    \fi
+    \ifdefined\colabdois
+      \vspace{10pt}
+      \textbf{\\ \colabdois}
+      \vspace{-4pt}
+      {\scriptsize \\ \instcolabdois}
+    \fi
+    \ifdefined\colabtres
+      \vspace{10pt}
+      \textbf{\\ \colabtres}
+      \vspace{-4pt}
+      {\scriptsize \\ \instcolabtres}
+    \fi
+    \ifdefined\colabquatro
+      \vspace{10pt}
+      \textbf{\\ \colabquatro}
+      \vspace{-4pt}
+      {\scriptsize \\ \instcolabquatro}
+    \fi
+    {\small \\ \vfill \data}
+  \end{center}
+}
+
+\include{body}
+
+\myframe{
+  \hfill
+  \begin{beamercolorbox}[center, wd=0.6\textwidth, rounded=true,
+      shadow=true]{secbox}
+    \bf \LARGE \thanksmsg
+  \end{beamercolorbox}
+  \hfill{}
+
+  \begin{center}
+    \includegraphics[scale=0.7]{img/cc.png} \qquad
+    \includegraphics[scale=0.7]{img/by.png} \qquad
+    \includegraphics[scale=0.7]{img/sa.png}
+
+  \ifpt{
+    Esta apresentação está licenciada com uma Licença Creative Commons
+    Atribuição-CompartilhaIgual 4.0 Internacional.
+  }\else{
+    This presentation is licensed under the Creative Commons Attributions-ShareAlike 4.0
+    International License.
+  }\fi
+  \end{center}
+}
+
+\end{document}

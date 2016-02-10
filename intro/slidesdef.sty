@@ -1,0 +1,152 @@
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{multirow}
+\usepackage{algpseudocode}
+\usepackage[numbers]{natbib}
+\usepackage{listings}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pgfplots}
+\usepackage{colordef}
+\usepackage{textcomp}
+\pgfplotsset{compat=newest}
+\usepackage{amssymb, amsmath, amsfonts}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\useinnertheme{rounded}
+\setbeamercolor{structure}{fg = myitemcolor}
+\useoutertheme{infolines}
+
+\setbeamercolor{mainbox}{bg=mydarkercolor, fg=mylightcolor}
+\setbeamercolor{secbox}{bg=mydarkcolor, fg=mylightcolor}
+
+\setbeamercolor{palette primary}  {bg=mydarkestcolor,fg=mylightcolor}
+\setbeamercolor{palette secondary}{bg=mydarkcolor,fg=mylightcolor}
+\setbeamercolor{palette tertiary} {bg=mydarkercolor,fg=mylightcolor}
+\setbeamercolor{palette fourth}   {bg=mydarkcolor,fg=mylightcolor}
+\setbeamercolor{title}{bg = mytitlebg,fg = mytitlefg}
+\setbeamerfont{title}{series = \bf}
+\usefonttheme[onlymath]{serif}
+\logo{Logo}
+
+\linespread{1.3}
+
+\newcommand{\makesection}[2]{
+  \iflanguage{portuguese}{
+    \section[#1]{#1}
+  }{
+    \section[#2]{#2}
+  }
+}
+\newcommand{\makesubsection}[2]{
+  \iflanguage{portuguese}{
+    \subsection[#1]{#1}
+  }{
+    \subsection[#2]{#2}
+  }
+}
+\newcommand{\myframe}[1]{
+\begin{frame}
+ %\frametitle{\insertsection \qquad {\small \insertsubsection}}
+
+{#1}
+
+\end{frame}}
+\newcommand{\myframesec}[1]{
+\myframe{
+\ifx\insertsubsection\empty
+  \ctr{\insertsection}
+\else
+  \ctr{\insertsection: \insertsubsection}
+\fi
+
+{#1} }}
+\newcommand{\myframesectop}[1]{
+\myframetop{
+\ifx\insertsubsection\empty
+  \ctr{\insertsection}
+\else
+  \ctr{\insertsection: \insertsubsection}
+\fi
+
+{#1} }}
+\newcommand{\myframetop}[1]{
+\begin{frame}[t]
+ %\frametitle{\insertsection \qquad {\small \insertsubsection}}
+
+{#1}
+
+\end{frame}}
+\newcommand{\myframecolor}[2]{
+  \setbeamercolor{background canvas}{bg = #1}
+  \myframe{
+
+    {#2}
+  }
+  \setbeamercolor{background canvas}{bg = mylightcolor}
+}
+\newcommand{\myframeblack}[1]{
+  \setbeamercolor{background canvas}{bg = black}
+  \myframe{
+
+    {#1}
+  }
+  \setbeamercolor{background canvas}{bg = mylightcolor}
+}
+
+\newcommand{\myframeout}[1]{
+  \begin{frame}
+    TIKZ
+  \end{frame}
+}
+% \newcommand{\visiblelbl}[1]{\label{#1}{\color{red}{#1}}}
+\newcommand{\visiblelbl}[1]{\label{#1}}
+\renewcommand{\And}{\quad \textbf{and} \quad }
+\newcommand{\Or}{\quad \textbf{or} \quad }
+\newcommand{\VertStep}{ {\bf VertStep} }
+\newcommand{\InnerVertStep}{ {\bf InnerVertStep} }
+\newcommand{\HorizStep}{ {\bf HorizStep} }
+\newcommand{\ctr}[1]{\begin{center}{\bf #1}\vspace{0.2 cm}\end{center}}
+\newcommand{\ctrcolor}[2]{\begin{center}{\bf \color{#1} #2}\vspace{0.2 cm}\end{center}}
+\newcommand{\ctrwhite}[1]{\begin{center}{\bf \color{white} #1}\vspace{0.2 cm}\end{center}}
+%\newcommand{\ctr}[1]{\frametitle{#1}}
+
+\setbeamercolor{background canvas}{bg = mylightcolor}
+
+\newcommand{\cmd}[1]{
+{\color{yellow} \tt \$ #1 }\\
+}
+
+\newcommand{\jlcmd}[1]{
+{\tt {\color{green} julia>} {\color{white} #1} }\\
+}
+
+\newcommand{\jlindent}{\ \ \ \ \ \ \ }
+\newcommand{\spcindent}{\ \ \ \ }
+
+\newcommand{\cmdinline}[1]{
+{\color{blue} \tt #1}}
+
+\newcommand{\cmmt}[1]{
+{\color{magenta} \tt \# #1} }
+
+\newcommand{\bashgt}{ \textgreater\ }
+\newcommand{\ddash}{-{}-}
+\newcommand{\bkslash}{\textbackslash}
+\newcommand{\elev}{\textasciicircum}
+\newcommand{\twodots}{::}
+% Ctrl+V" = "
+
+\usepackage{julialst}
+\lstset{
+  language=Julia,
+  basicstyle=\tt\scriptsize,
+  keywordstyle=\bfseries\color{blue},
+  stringstyle=\color{magenta},
+  commentstyle=\color{green},
+  breaklines=true,
+  extendedchars=true,
+  upquote=true
+}
